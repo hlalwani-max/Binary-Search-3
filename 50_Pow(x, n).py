@@ -33,20 +33,21 @@ class Solution:
     """
     Ideation- Binary search, TC- O(logN), SC- O(1)
 
-    The idea is to reduce repititions. For example, to calculate 2^5, it can be done by calculating -
+    The idea is to reduce repetitions. For example, to calculate 2^5, it can be done by calculating -
     2^2 * 2^2 * 2^1 * 2^1. 2^2 here is the repeated problem.
 
     Doing so, we can divide the sub problem in half each time and use it.
     """
+
     def myPow(self, x: float, n: int) -> float:
         # base
         if n == 0:
             return 1
         # floor division for negative doesn't give same result as positive in python
-        result = self.myPow(x, int(n/2))
-        if n%2 != 0:
+        result = self.myPow(x, int(n / 2))
+        if n % 2 != 0:
             if n < 0:
-                result = result * result * 1/x
+                result = result * result * 1 / x
             else:
                 result = result * result * x
         else:
